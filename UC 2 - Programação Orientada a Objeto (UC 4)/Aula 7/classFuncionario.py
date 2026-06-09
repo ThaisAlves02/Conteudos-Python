@@ -5,4 +5,3 @@ class Funcionario:
         self.salario = salario
         self.idade = idade
         self.cargo = cargo
-        
