@@ -22,14 +22,14 @@ class ContaBancaria:
         print(f"Saldo: R$ {self.__saldo:.2f}")
 
 
-conta1 = ContaBancaria("Bruna", 1000)
+conta = ContaBancaria("Bruna", 1000)
 
-conta1.mostrar_conta()
+conta.mostrar_conta()
 
-conta1.depositar(200)
-conta1.sacar(100)
+conta.depositar(300)
+conta.sacar(100)
 
-print(conta1.saldo)
+print(conta.saldo)
 
-conta1.sacar(300)
-conta1.mostrar_conta()
+conta.sacar(200)
+conta.mostrar_conta()

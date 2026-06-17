@@ -5,7 +5,6 @@ class ContaBancaria:
 
     def depositar(self, valor):
         if valor > 0:
-            print(f"TITULAR DA CONTA: {self.titular} ")
             print(f"Depósito de R$ {valor:.2f} realizado com sucesso.")
             self.__saldo += valor
         else:
@@ -33,7 +32,7 @@ class ContaBancaria:
 
 
 
-conta1 = ContaBancaria("Ana", 100)
+conta1 = ContaBancaria("Rafaela", 100)
 conta1.saldo_bancario()
 conta1.titular = "ZÉ DOIDIM"
 conta1.depositar(50)
