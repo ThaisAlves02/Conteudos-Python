@@ -43,6 +43,6 @@ conta1.sacar(200)
 conta1.saldo_bancario()
 
 conta1.sacar(80)
-conta1.saldo = -1000
+conta1.__saldo = -1000
 conta1.saldo_bancario()
 
