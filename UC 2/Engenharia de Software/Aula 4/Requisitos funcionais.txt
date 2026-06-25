@@ -1,0 +1,30 @@
+Requisitos funcionais
+
+1 Permitir que o usuário crie tarefas.
+
+2 Permitir que o usuário veja a lista de tarefas filtrando pela prioridade (alta, média ou baixa).
+
+3 Permitir que o usuário edite suas tarefas.
+
+4 Exibir o status das tarefas, se ela está pendente ou foi concluída.
+
+5 Permitir que o usuário exclua as suas tarefas quando desejar.
+
+Requisitos não funcionais
+
+1 Somente usuários cadastrados terão acesso as funcionalidades deste programa.
+
+2 O sistema deve fazer backups diários das informações e armazenar no banco de dados.
+
+3 O sistema deve ter um design intuitivo, que facilite para o usuário o uso da ferramenta.
+
+4 O sistema deve ser compatível com diferentes sistemas operacionais, como Windows, macOS e Linux. 
+
+5 As atualizações de software devem ser fáceis de implementar e não prejudicar o funcionamento do sistema.
+
+Regras de negócio
+
+1 As credenciais de todos os usuários devem ser validadas antes de terem acesso ao sistema.
+
+2 
+3
