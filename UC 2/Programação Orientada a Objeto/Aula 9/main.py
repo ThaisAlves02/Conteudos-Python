@@ -14,11 +14,21 @@ def cadastrar_cliente():
             cliente_existente = True
             break
 
-
     if cliente_existente:
-        print(f"O Cliente {nome} ja esta cadastrado")
+        print(f"O Cliente {nome} já está cadastrado!")
+
+    cpf = input("CPF: ")
+
+    cpf_existe = False
+
+    for cliente in clientes:
+        if cliente.cpf == cpf:
+             cpf_existe = True
+             break
+        
+    if cpf_existe:
+                print(f"O CPF {cpf} já está cadastrado!")
     else:
-        cpf = input("CPF: ")
         telefone = input("Telefone: ")
         email = input("E-mail: ")
 
@@ -26,7 +36,8 @@ def cadastrar_cliente():
         clientes.append(cliente)
 
         print()
-        print("Cliente cadastrado com sucesso!")
+        print("Cliente cadastrado com sucesso!")                
+    
 
 def cadastrar_servico():
     print("=== CADASTRO DE SERVIÇOS ===")
@@ -122,6 +133,26 @@ def exibir_agendamento():
         print(f"{i+1} - Cliente: {agn.cliente.nome} | Serviço: {agn.servico.nome} | Data: {agn.data} | Horário: {agn.horario}")
 
 
+def editar_cliente():
+    exibir_cliente()
+
+    num_cliente = int(input("Digite o número do cliente que deseja remover: "))
+
+    cliente_escolhido = clientes[num_cliente-1]
+
+    novo_nome = input("Escreva o novo nome: ")
+    if novo_nome:
+        cliente_escolhido.nome = novo_nome
+    
+    novo_telefone = input("Escreva o novo telefone: ")
+    if novo_telefone:
+        cliente_escolhido.telefone = novo_telefone
+    
+    novo_email = input("Escreva o novo email: ")
+    if novo_email:
+        cliente_escolhido.email = novo_email
+
+
 def cancelar_agendamento():
     print("\n=== Cancelar Agendamento ===")
 
@@ -148,7 +179,8 @@ while True:
             2 - Cadastrar Serviço
             3 - Agendar Atendimento
             4 - Listar Agendamentos
-            5 - Cancelar Agendamento
+            5 - Editar cliente
+            6 - Cancelar Agendamento
             0 - Sair
                 """)
 
@@ -167,6 +199,9 @@ while True:
         exibir_agendamento()
 
     elif opcao == "5":
+        editar_cliente()
+
+    elif opcao == "6":
         cancelar_agendamento()
 
     elif opcao == "0":
