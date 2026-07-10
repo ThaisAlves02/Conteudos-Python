@@ -6,7 +6,14 @@ agendamentos = []
 
 def cadastrar_cliente():
     print("=== CADASTRO DE CLIENTES ===")
-    nome = input("Nome: ")
+
+    while True:
+        nome = input("Nome: ")
+        if nome == "":
+            print("O campo nome está vazio, digite um nome!")
+            continue
+        else:
+            break
     
     cliente_existente = False
     for nome_cliente in clientes:
@@ -17,10 +24,15 @@ def cadastrar_cliente():
     if cliente_existente:
         print(f"O Cliente {nome} já está cadastrado!")
 
-    cpf = input("CPF: ")
+    while True:
+        cpf = input("CPF: ")
+        if cpf == "":
+            print("O campo CPF está vazio, digite um CPF!")
+            continue
+        else:
+            break
 
     cpf_existe = False
-
     for cliente in clientes:
         if cliente.cpf == cpf:
              cpf_existe = True
@@ -153,6 +165,27 @@ def editar_cliente():
         cliente_escolhido.email = novo_email
 
 
+def editar_agendamento():
+    exibir_agendamento()
+    
+    num_agendamento = int(input("Digite o número do agendamento: "))
+
+    agendamento_escolhido = agendamentos[num_agendamento - 1]
+
+    novo_servico = input("Digite um novo serviço: ")
+    if novo_servico:
+      agendamento_escolhido.servico.nome = novo_servico
+
+    novo_horario = input("Digite um novo horário: ")
+    if novo_horario:
+        agendamento_escolhido.horario = novo_horario
+    
+    nova_data = input("Digite uma nova data: ")
+    if nova_data:
+        agendamento_escolhido.data = nova_data
+
+
+
 def cancelar_agendamento():
     print("\n=== Cancelar Agendamento ===")
 
@@ -178,9 +211,12 @@ while True:
             1 - Cadastrar Cliente
             2 - Cadastrar Serviço
             3 - Agendar Atendimento
-            4 - Listar Agendamentos
-            5 - Editar cliente
-            6 - Cancelar Agendamento
+            4 - Listar serviços
+            5 - Listar Agendamentos
+            6 - Editar cliente
+            7 - Editar agendamento
+            8 - Cancelar Agendamento
+          
             0 - Sair
                 """)
 
@@ -196,12 +232,18 @@ while True:
         agendar()
 
     elif opcao == "4":
+        exibir_servico()
+    
+    elif opcao == "5":
         exibir_agendamento()
 
-    elif opcao == "5":
+    elif opcao == "6":
         editar_cliente()
 
-    elif opcao == "6":
+    elif opcao == "7":
+        editar_agendamento()
+
+    elif opcao == "8":
         cancelar_agendamento()
 
     elif opcao == "0":
