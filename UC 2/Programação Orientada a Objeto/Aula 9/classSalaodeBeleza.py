@@ -19,7 +19,3 @@ class Agendamento:
         self.servico = servico
         self.data = data
         self.horario = horario
-
-    
-
-
