@@ -5,4 +5,14 @@ class Bola():
         self.material = material
 
     def trocar_cor(self):
-        
+        cor1 = "verde"
+        cor2 = "azul"
+
+        if self.cor == None:
+            self.cor = cor1
+            print(cor1)
+        else:
+            self.cor = cor2
+            print(cor2)
+
+    trocar_cor()
