@@ -15,4 +15,7 @@ class Bola():
             self.cor = cor2
             print(cor2)
 
+    def mudar_cor():
+        pass
+
     trocar_cor()
