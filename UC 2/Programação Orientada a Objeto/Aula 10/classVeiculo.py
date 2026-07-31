@@ -9,7 +9,7 @@ class Veiculo():
        self.horas_estacionadas = horas_estacionadas
 
     def adicionar_horas(self):
-        
+            print("== ADICIONAR HORAS ==")
             hora_adicionada = int(input("Digite a quantidade de horas estacionadas: "))
 
             self.horas_estacionadas = self.horas_estacionadas + hora_adicionada
@@ -19,8 +19,8 @@ class Veiculo():
 
     def calcular_valor_total(self):
         total = self.horas_estacionadas * self.valor_hora
-
-        print(f"Valor total: {total:.2f}")
+        print()
+        print(f"Valor total: R$ {total:.2f}")
 
 
     def exibir_dados(self):
