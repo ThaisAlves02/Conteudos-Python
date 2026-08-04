@@ -4,5 +4,6 @@ class Aluno:
         self.notas = []
 
     def adicionar_nota(n):
-        nota = int(input())
+        nota = int(input("Digite a nota do aluno: "))
+        
         pass
