@@ -6,10 +6,10 @@ class ContaBancaria:
         if valor > 0:
           self._saldo += valor
           print(f"{valor:.2f}")
-          
+
     def sacar(self, valor):
         if valor <= 0:
             print(f"O valor do saque deve ser maior que zero.")
         elif valor > 0:
             self._saldo -= valor
-            print(f"")
+            print(f"Saque efetuado")
