@@ -6,14 +6,6 @@ def verificarCPF_nivel1(cpf_verificavel):
     else:
         print("CPF COM TAMANHO INVÁLIDO!")
 
-# nome = input("Digite o nome do cliente:")
-
-# idade = int(input("Digite a idade do cliente: "))
-
-# cpf = input("Digite o cpf: ")
-
-# verificarCPF_nivel1(cpf)
-
 # Nível 2 de uso da função (Retornar informação)
 
 def verificarCPF_nivel2(cpf_verificavel):
@@ -23,31 +15,6 @@ def verificarCPF_nivel2(cpf_verificavel):
     else:
         print("CPF COM TAMANHO INVÁLIDO")
         return "Inválido"
-
-# nome = input("Digite o nome do cliente:")
-
-# idade = int(input("Digite a idade do cliente: "))
-
-# while True:
-
-#     cpf = input("Digite o cpf: ")
-
-#     resultado = verificarCPF_nivel2(cpf) # Deve retornar "Válido" ou "Inválido"
-
-#     if resultado == "Válido":
-#         break
-#     else:
-#         continue
-
-
-# novo_cliente = {
-#     "Nome": nome,
-#     "Idade": idade,
-#     "CPF": cpf
-# }
-
-# print(novo_cliente)
-
 
 # Nível 3 de uso da função (Implementar uma funcionalidade do sistema)
 def coletarCPF_nivel3():
@@ -60,18 +27,3 @@ def coletarCPF_nivel3():
         else:
             print("CPF COM TAMANHO INVÁLIDO!")
             continue
-
-nome = input("Digite o nome do cliente:")
-
-idade = int(input("Digite a idade do cliente: "))
-
-cpf = coletarCPF_nivel3()
-
-
-novo_cliente = {
-    "Nome": nome,
-    "Idade": idade,
-    "CPF": cpf
-}
-
-print(novo_cliente)
