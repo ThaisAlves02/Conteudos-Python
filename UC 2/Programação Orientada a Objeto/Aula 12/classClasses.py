@@ -43,3 +43,15 @@ class Servico:
             self.preco = novo
         else:
             print("Preço inválido")
+
+class Agendamento:
+    def __init__(self, cliente, profissional, servico, data_hora):
+        self.cliente = cliente
+        self.profissonal = profissional
+        self.servico = servico
+        self.data_hora = data_hora
+        cliente.agendamento.append(self)
+        profissional.agendamento.append(self)
+    
+    def resumo(self):
+        return (f"{self.data_hora} - ")
