@@ -36,3 +36,10 @@ class Servico:
         self.preco = preco
     
     def get_preco(self):
+        return self.preco
+    
+    def set_preco(self, novo):
+        if novo > 0:
+            self.preco = novo
+        else:
+            print("Preço inválido")
