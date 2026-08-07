@@ -54,4 +54,8 @@ class Agendamento:
         profissional.agendamento.append(self)
     
     def resumo(self):
-        return (f"{self.data_hora} - ")
+        return (
+            f"{self.data_hora} - {self.cliente.nome} com "
+            f"{self.profissional.nome} - {self.servico.nome} "
+            f"R$ {self.servico.get_preco():.2f}"
+        )
