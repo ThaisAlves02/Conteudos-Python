@@ -59,3 +59,7 @@ class Agendamento:
             f"{self.profissional.nome} - {self.servico.nome} "
             f"R$ {self.servico.get_preco():.2f}"
         )
+
+if __name__ == "__main__":
+    ana = Cliente("ana", "85 9999 - 9999")
+    bruno = Profissional()
