@@ -1,5 +1,8 @@
 import customtkinter as ctk
 
+usuario_correto = "admin"
+senha_correta = "123"
+
 #Criar a janela principal
 app = ctk.CTk()
 app.title('Login') #tela de login
@@ -41,10 +44,10 @@ def fazer_login():
         abrir_tela_principal()
     else:
         senha_erro.configure(text="Usuário ou senha incorretos!")
-        
+
 
 #Botão do login
-botao_login = ctk.CTkButton(app,text='Entrar')
+botao_login = ctk.CTkButton(app,text='Entrar', command=fazer_login)
 botao_login.pack(pady=(10,0))
 
 #Texto para cadastro
