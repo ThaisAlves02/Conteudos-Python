@@ -18,11 +18,38 @@ entrada_usuario = ctk.CTkEntry(app,placeholder_text='Usuário') #entry é um inp
 entrada_usuario.pack()
 
 #campo de senha
-senha = ctk.CTkEntry(app,placeholder_text='Senha') #entry é um input
-senha.pack(pady=(10,0))
+entrada_senha = ctk.CTkEntry(app,placeholder_text='Senha') #entry é um input
+entrada_senha.pack(pady=(10,0))
+
+#Label para mostrar erro de senha
+senha_erro = ctk.CTkLabel(app,text="", text_color='red')
+senha_erro.pack()
+
+def abrir_tela_principal():
+    app.destroy() # Fecha a janela de login
+    
+    nova_janela = ctk.CTk()
+    nova_janela.title('Área principal')
+    nova_janela.geometry('400x350')
+    nova_janela.mainloop()
+
+def fazer_login():
+    usuario = entrada_usuario.get() #get() é para pegar as informações e as guarda
+    senha = entrada_senha.get()
+    
+    if usuario == usuario_correto and senha == senha_correta:
+        abrir_tela_principal()
+    else:
+        senha_erro.configure(text="Usuário ou senha incorretos!")
+        
 
 #Botão do login
 botao_login = ctk.CTkButton(app,text='Entrar')
 botao_login.pack(pady=(10,0))
+
+#Texto para cadastro
+texto_cadastro = ctk.CTkLabel(app,text='Cadastre-se', cursor='hand2') #cursor é meu moose 
+texto_cadastro.pack()
+
 
 app.mainloop() #A janela ficará aberta até ser fechada
