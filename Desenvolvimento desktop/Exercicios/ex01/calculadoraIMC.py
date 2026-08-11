@@ -7,10 +7,10 @@ tela.geometry('400x350')
 titulo = ctk.CTkLabel(tela,text='Calculadora de IMC',font=('Arial',16,'bold'))
 titulo.pack(pady=(40,10))
 
-entrada_peso = ctk.CTkEntry(tela,placeholder_text='Digite o seu peso: ')
+entrada_peso = ctk.CTkEntry(tela,placeholder_text='Digite o seu peso')
 entrada_peso.pack()
 
-entrada_altura = ctk.CTkEntry(tela,placeholder_text='Digite a sua altura: ')
+entrada_altura = ctk.CTkEntry(tela,placeholder_text='Digite a sua altura')
 entrada_altura.pack(pady=(10,0))
 
 def calcular_imc():
