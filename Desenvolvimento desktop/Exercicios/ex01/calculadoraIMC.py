@@ -18,8 +18,7 @@ def calcular_imc():
     altura = float(entrada_altura.get())
     
     imc = peso / (altura * altura)
-    mensagem.configure(text=f"Seu IMC é: {imc:.2f}")
-    return
+    mensagem.configure(text=f"Seu IMC é: {imc:.2f}") # .configure é parecido com o replace.
     
 
 botao = ctk.CTkButton(tela,text='Calcular', command=calcular_imc)

@@ -45,7 +45,6 @@ def fazer_login():
     else:
         senha_erro.configure(text="Usuário ou senha incorretos!")
 
-
 #Botão do login
 botao_login = ctk.CTkButton(app,text='Entrar', command=fazer_login)
 botao_login.pack(pady=(10,0))
