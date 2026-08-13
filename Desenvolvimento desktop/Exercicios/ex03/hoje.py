@@ -114,7 +114,8 @@ def atualizar_status(mensagem):
 
 
 # TODO 1 - escreva seu código aqui:
-
+sucesso_frame = ctk.CTkFrame(app,fg_color="#8ac8ff")
+sucesso_frame.grid(row=1,column=2,columnspan=2,sticky='ew',padx=20)
 
 
 # =====================================================
