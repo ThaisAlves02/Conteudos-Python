@@ -1,4 +1,21 @@
 import customtkinter as ctk
+from tkinter import messagebox
+
+def cadastrar():
+    resposta = messagebox.askyesno('Confirmar, Deseja cadastrar esse cliente?')
+    if resposta:
+        messagebox.showinfo('cliente cadastrado!')
+    else:
+        messagebox.showwarning('Cancelado')
+    #messagebox.showinfo('sucesso', 'cliente cadastrado') #messengerbox serve para mostrar uma mensagem ao usuário.
+    # Os três tipos de messengerbox: muda só o ícone
+    # - messagebox.showinfo
+    # - messegerbox.warming
+    # - messengerbox.error
+    
+    # Além das messenger de ação:
+    # - messagebox.askyesno
+    # - messageboxaskcancel
 
 app = ctk.CTk()
 app.title('Cadastro')
@@ -101,7 +118,8 @@ cadastrar_botao = ctk.CTkButton(
     app,
     text='Cadastrar',
     fg_color='red', #cor do botão
-    hover_color='blue' #muda de cor quando passo o mouse em cima do botão
+    hover_color='blue', #muda de cor quando passo o mouse em cima do botão
+    command=cadastrar
 )
 
 cadastrar_botao.grid(
