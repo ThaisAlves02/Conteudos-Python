@@ -1,13 +1,7 @@
 import customtkinter as ctk
 from tkinter import messagebox
 
-def cadastrar():
-    resposta = messagebox.askyesno('Confirmar, Deseja cadastrar esse cliente?')
-    if resposta:
-        messagebox.showinfo('cliente cadastrado!')
-    else:
-        messagebox.showwarning('Cancelado')
-    #messagebox.showinfo('sucesso', 'cliente cadastrado') #messengerbox serve para mostrar uma mensagem ao usuário.
+#messagebox.showinfo('sucesso', 'cliente cadastrado') #messengerbox serve para mostrar uma mensagem ao usuário.
     # Os três tipos de messengerbox: muda só o ícone
     # - messagebox.showinfo
     # - messegerbox.warming
@@ -17,115 +11,165 @@ def cadastrar():
     # - messagebox.askyesno
     # - messageboxaskcancel
 
+def cadastrar():
+    resposta = messagebox.askyesno('confimar','Deseja cadastrar esse cliente?')
+    
+    if resposta:
+        messagebox.showinfo('Sucesso','Cliente Cadastrado!')
+    else:
+        messagebox.showwarning('Cancelado', 'Cadastro cancelado')
+        
+# JANELA
+
+
 app = ctk.CTk()
-app.title('Cadastro')
-app.geometry('500x400')
+
+app.title("Cadastro de Clientes")
+app.geometry("500x400")
 app._set_appearance_mode('system')
 
+app.grid_columnconfigure(0,weight=1)
+app.grid_columnconfigure(1,weight=1)
+
+# TÍTULO
 
 titulo = ctk.CTkLabel(
     app,
-    text='Cadastro de clientes',
-    font=('Arial',20,'bold'),
-    padx=10,
+    text="Cadastro de Clientes",
+    font=("Arial", 28, "bold")
 )
 
 titulo.grid(
-    row=0, # row é linha
-    column = 0,
-    padx=10,
-    columnspan =3
+    row=0,
+    column=0,
+    columnspan=2,
+    pady=20
 )
 
-label_nome = ctk.CTkLabel(
-    app,
-    text='Nome',
-    pady=10
+#FRAME DADOS PESSOAIS
+
+dados_frame = ctk.CTkFrame(app,fg_color="#323b43")
+
+dados_frame.grid(row=1,column=0,columnspan=2,sticky='ew',padx=20)
+
+# NOME
+
+
+nome_label = ctk.CTkLabel(
+    dados_frame,
+    text="Nome:"
 )
 
-label_nome.grid(
+nome_label.grid(
     row=1,
     column=0,
-    sticky='w', # wens: w = esquerda, e = direita, n = cima, s = baixo
-    padx=10
+    padx=20,
+    pady=10,
+    sticky="w"
 )
 
-entry_nome = ctk.CTkEntry(
-    app,
-    placeholder_text='Digite seu nome',
-    #corner_radius=5, #arredonda as bordas
-    #border_color='light blue' #dar cor as bordas
-    #border_width=4, # espessura
-    #text_color='red',
-    #placeholder_text_color='yellow'
-    #show='*' # O caractere * será exibido quando eu digitar
+nome_entry = ctk.CTkEntry(
+    dados_frame,
+    placeholder_text="Digite seu nome",
+    width=300,#largura
+    height=20,#altura
+    corner_radius= 5,#Arredondamento da forma
+    border_color="#063a5f", #cor da borda
+    border_width=4,#espessura
+    text_color="red",#cor do texto do entry
+    placeholder_text_color="#c09c49",
+    show="*",#caractere que será exibido ao digitar    
 )
 
-entry_nome.grid(
+nome_entry.grid(
     row=1,
     column=1,
+    padx=20,
     pady=10
 )
 
-label_telefone = ctk.CTkLabel(
-    app,
-    text='Telefone',
+
+
+# TELEFONE
+
+
+telefone_label = ctk.CTkLabel(
+    dados_frame,
+    text="Telefone:"
 )
 
-label_telefone.grid(
+telefone_label.grid(
     row=2,
     column=0,
-    sticky='w', # wens: w = esquerda, e = direita, n = cima, s = baixo
-    padx=10
+    padx=20,
+    pady=10,
+    sticky="w"
 )
 
-entry_telefone = ctk.CTkEntry(
-    app,
-    placeholder_text='Digite seu telefone'
+telefone_entry = ctk.CTkEntry(
+   dados_frame,
+    placeholder_text="Digite seu telefone",
+    width=300
 )
 
-entry_telefone.grid(
+telefone_entry.grid(
     row=2,
     column=1,
+    padx=20,
     pady=10
 )
 
-label_email = ctk.CTkLabel(
-    app,
-    text='Email',
-    pady=10
+
+
+# E-MAIL
+
+
+email_label = ctk.CTkLabel(
+    dados_frame,
+    text="E-mail:"
 )
 
-label_email.grid(
+email_label.grid(
     row=3,
     column=0,
-    sticky='w', # wens: w = esquerda, e = direita, n = cima, s = baixo
-    padx=10
+    padx=20,
+    pady=10,
+    sticky="w"
 )
 
-entry_email = ctk.CTkEntry(
-    app,
-    placeholder_text='Digite seu email'
+email_entry = ctk.CTkEntry(
+    dados_frame,
+    placeholder_text="Digite seu e-mail",
+    width=300
 )
 
-entry_email.grid(
+email_entry.grid(
     row=3,
     column=1,
+    padx=20,
     pady=10
 )
 
-cadastrar_botao = ctk.CTkButton(
+
+
+# BOTÃO
+
+
+cadastrar_button = ctk.CTkButton(
     app,
-    text='Cadastrar',
-    fg_color='red', #cor do botão
-    hover_color='blue', #muda de cor quando passo o mouse em cima do botão
+    text="Cadastrar",
+    fg_color='red',
+    hover_color='blue',
+    text_color='grey',
     command=cadastrar
 )
 
-cadastrar_botao.grid(
+cadastrar_button.grid(
     row=4,
     column=0,
-    columnspan=2 #consegue ficar nas duas colunas que ele está
+    columnspan=2,
+    pady=20
 )
+
 
 app.mainloop()
