@@ -4,11 +4,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-if os.getenv("DB_HOST") is None:
-    print("Não encontrei o .env. Confira o nome do arquivo e a pasta.")
-else:
-    print("Conectando em", os.getenv("DB_HOST"))
-
 conexao = None
 cursor = None
 
