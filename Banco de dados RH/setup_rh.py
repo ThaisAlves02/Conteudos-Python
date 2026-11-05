@@ -64,26 +64,6 @@ try:
         
         conexao.commit()
         print("Banco rh pronto.")
-        
-
-        while True:
-            print("=== MENU RH ===")
-            print("""
-                    1. Ver funcionários
-                    2. Ver departamentos
-                    0. Sair
-            """)
-            op = input("Digite a opção desejada: ")
-
-            if op == "1":
-                print("Ver funcionários")
-            elif op == "2":
-                print("Ver departamentos")
-            elif op == "0":
-                print("Sair")
-                break
-            else:
-                continue
             
 except psycopg.OperationalError as erro:
        print("Não foi possível conectar ao banco.")
