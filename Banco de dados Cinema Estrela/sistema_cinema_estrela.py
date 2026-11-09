@@ -13,15 +13,12 @@
 import os
 import psycopg
 from dotenv import load_dotenv
-from datetime import time
+from datetime import datetime
 
 load_dotenv()
 
 
 while True:
-    
-    
-    
     print("""
     SEJA BEM VINDO AO CINEMA ESTRELA
     
@@ -166,8 +163,10 @@ while True:
 
     elif (op == "4"):
         print("CADASTRAR NOVA SESSÃO")
-        
+
+        cod_filme = input("Digite o código do filme para esta sessão:")
         data = input("Digite a data (dd/mm/aa):")
+        data_banco = datetime.strptime(data, "%d/%m/%Y").date()
         horario = input("Digite o horario (HH:MM:SS):")
         sala = int(input("Digite a sala: "))
 
@@ -187,11 +186,12 @@ while True:
             
             cursor.execute(f'''
             INSERT INTO sessoes (cod_filme, data_sessao, horario_sessao, sala_sessao)
-            VALUES (%s, %s, %s);               
-                            ''', (data, horario, sala))
+            VALUES (%s, %s, %s, %s);               
+                            ''', (cod_filme, data_banco, horario, sala))
         
             conexaoDB.commit()
-        
+            print("\nSessão cadastrada com sucesso!")
+
         except Exception as error:
             print("Erro no cadastro da sessão")
             print(error)
@@ -202,7 +202,7 @@ while True:
                 cursor.close()
         
             if (conexaoDB is not None):
-                conexaoDB.close
+                conexaoDB.close()
 
     elif (op == "0"):
         print("Saindo do programa...")
@@ -211,11 +211,3 @@ while True:
         print("Escolha uma opção válida...")
     
     input("TECLE ENTER PARA CONTINUAR")
-    
-
-        
-
-            
-        
-
-
