@@ -35,7 +35,7 @@ def verFilmes():
 
 
 def verFilmePorID():
-    print("VER FILMES PELO ID")
+    print("\nVER FILMES PELO ID")
     verFilmes()
 
     filmeescolhido = input("DIGITE O ID DO FILME DESEJADO:")
@@ -69,7 +69,74 @@ def verFilmePorID():
             print(f"Sessão #{linha[4]} | Data: {linha[5]} | Horário: {linha[6]} | Sala: {linha[7]}")
             
     print("-" * 50)
-    
+
+    return resultado[0]
+
+def cadastrarNovoFilme():
+    # Cores ANSI para o terminal
+    VERDE = '\033[92m'
+    VERMELHO = '\033[91m'
+    CIANO = '\033[96m'
+    AMARELO = '\033[93m'
+    NEGRITO = '\033[1m'
+    RESET = '\033[0m'
+
+    print(f"\n{CIANO}{'=' * 42}{RESET}")
+    print(f"{NEGRITO}{CIANO}🎬      CADASTRO DE UM NOVO FILME      🎬{RESET}")
+    print(f"{CIANO}{'=' * 42}{RESET}")
+
+    titulo = input(f"{AMARELO}➤{RESET} Digite o título: ")
+    duracao = input(f"{AMARELO}➤{RESET} Digite a duração (ex: 120 min): ")
+    classifi = input(f"{AMARELO}➤{RESET} Digite a classificação (ex: 14 anos): ")
+
+    print(f"{CIANO}{'-' * 42}{RESET}")
+
+    try:
+        banco.manipular('''
+            INSERT INTO filmes
+            VALUES (default, %s, %s, %s);
+        ''', (titulo, duracao, classifi))
+        
+        print(f"{VERDE}✅ FILME CADASTRADO COM SUCESSO!{RESET}")
+        
+    except Exception as error:
+        print(f"{VERMELHO}❌ ERRO AO CADASTRAR O FILME:{RESET}")
+        print(f"{VERMELHO}   Detalhes: {error}{RESET}")
+
+    print(f"{CIANO}{'=' * 42}{RESET}\n")
+
+
+def atualizarFilme():
+    print("\nATUALIZAR UM FILME")
+
+    resultado = verFilmePorID()
+    if resultado is None:
+        return
+
+    cod_filme, titulo, duracao, classificacao = resultado
+    print("Deixe vazio para manter o valor atual.")
+    novo_titulo = input(f"Título {titulo}: ").strip()
+    nova_duracao = input(f"Duração {duracao}: ").strip()
+    nova_classificacao = input(f"Classificação {classificacao}: ").strip()
+
+    if novo_titulo != "":
+        titulo = novo_titulo
+    if nova_duracao != "":
+        duracao = nova_duracao
+    if nova_classificacao != "":
+        classificacao = nova_classificacao
+
+    try:
+        banco.manipular('''
+        UPDATE filmes
+        SET (default, %s, %s, %s, %s, %s);                
+                        ''', (nome, cpf, cargo, salario, cod_setor))
+        print("FUNCIONÁRIO CADASTRADO COM SUCESSO!")
+    except Exception as error:
+        print("ERRO AO CADASTRAR FUNCIONÁRIO")
+
+
+
 
 def exibirMenu():
         print("\n" + "╔" + "═" * 48 + "╗")
@@ -93,6 +160,10 @@ while (True):
         verFilmes()
     elif (op == "2"):
         verFilmePorID()
+    elif (op == "3"):
+        cadastrarNovoFilme()
+    elif (op == "4"):
+        atualizarFilme()
     elif (op == "0"):
         print("\nSaindo do programa...")
         
